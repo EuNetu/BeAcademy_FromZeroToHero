@@ -4,12 +4,12 @@
 
 ## Programa
 
-- A Central IT e Run2Biz tinha como objetivo formar 80 perfis selecionados para Dev low code por todo o Brasil. Assim em parceria com Be academy foi criado um bootcamp de formação pensado e guiado da melhor forma.
-- O objetivo principal do programa é formar novos talentos como Dev low code que tenham interesse no universo da tecnologia, e acreditem, que a tecnologia vem como aliada para melhorar as relações humanas!
+- A Central IT e Run2Biz tinha como objetivo formar 80 perfis selecionados para Dev low code por todo o Brasil. Assim, em parceria com a Be Academy, foi criado um bootcamp de formação pensado e guiado da melhor forma.
+- O objetivo principal do programa é formar novos talentos, como Devs low code que tenham interesse no universo da tecnologia. E, acreditem, a tecnologia vem como aliada para melhorar as relações humanas!
 
 ## Conteúdo
 
-#### Be academy teve como missão abordar de forma organizada conteúdos essenciais para um desenvolvedor. Sendo assim, os conteúdos abordados foram os:
+#### Be Academy teve como missão abordar de forma organizada conteúdos essenciais para um desenvolvedor. Sendo assim, os conteúdos abordados foram:
 
 - Softskills e Metodologia Ágil
 - Excel Básico e Intermediário
@@ -24,13 +24,13 @@
 
 ## Objetivo do Projeto Final
 
-#### No final do programa, como avaliação, temos como objetivo três tarefas para colocar em prática os conhecimentos 
+#### No final do programa, de forma avaliativa, temos como meta realizar três tarefas. Em conjunto, elas objetivam colocar em prática os conhecimentos adquiridos
 
-1. Planilha EXCEL
-2. Landing page com tema escolhido pelo aluno
+1. Planilha Excel
+2. Landing Page de tema livre
 3. Desenvolvimento de um banco de dados
 
-## Para verificar meu resultado final é só entrar nos respectivos diretórios deste mesmo projeto ou clicar nos links abaixo:
+## Para verificar meu resultado final basta entrar nos respectivos diretórios deste mesmo projeto ou clicar nos links abaixo:
 
 #### [Planilha Excel](https://github.com/EuNetu/BeAcademy_FromZeroToHero/tree/main/Planilha_Excel)
 
