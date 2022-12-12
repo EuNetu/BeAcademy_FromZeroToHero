@@ -1,3 +1,5 @@
+"use strict";
+
 const typedTextSpan = document.querySelector(".texto-escrito");
 const cursorSpan = document.querySelector(".cursor");
 
