@@ -56,6 +56,14 @@ p {
     letter-spacing: 0.05rem;
 }
 
+section{
+    flex-direction: column;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    margin: 3em 0;
+}
+
 a {
     color: #fff;
     text-decoration: none;
@@ -324,6 +332,91 @@ main {
     width: 300px;
 }
 
+#formulario{
+    background-color: #f7f8fc;
+    padding: 3em;
+}
+
+.header-formulario {
+    padding: 0 0 2em 0;
+}
+
+.container-formulario{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+    max-width: 30rem;
+}
+
+label,
+input,
+textarea,
+button {
+    display: block;
+}
+
+input,
+textarea,
+button {
+    width: 100%;
+    font: inherit;
+    padding: 1.25rem;
+    font-weight: 700;
+}
+
+input,
+textarea {
+    margin-bottom: 1rem;
+    color: white;
+    background: #d86e27;
+    border: 0.125rem solid transparent;
+    border-radius: 1.125rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 0 0.3125rem #d86e27;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    color: #84868f;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    border: none;
+    border-radius: 99px;
+    color: #fff;
+    background: #000000;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover,
+button:focus {
+    outline: none;
+    background: #491502;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background: #555b69;
+}
 
 footer p {
     font-size: 15px;

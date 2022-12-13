@@ -89,6 +89,30 @@
         </section>
       </div>
     </section>
+    <div class="linha"></div>
+    <section id="formulario">
+      <div class="header-formulario">
+        <h2>Cadastro</h2>
+        <p>Registre o desaparecimento do seu amigo</p>
+      </div>
+      
+      <div class="container-formulario">
+        <form method="POST">
+          <label for="nomeDono">Seu nome</label>
+          <input type="text" maxlength="40" name="nomeDono" id="nomeDono" required />
+          <label for="telefone">Telefone</label>
+          <input type="tel" maxlength="11" name="telefone" id="telefone" required />
+          <label for="nomePet">Nome do seu amigo perdido</label>
+          <input type="tel" name="nomePet" id="nomePet" required />
+          <label for="ultimaVista">Última vez visto no(a)</label>
+          <textarea name="ultimaVista" maxlength="150" id="ultimaVista" required></textarea>
+          <label for="observacao">Observação</label>
+          <textarea name="observacao" maxlength="150" id="observacao" required></textarea>
+          <button type="submit" onclick="cadastraPetPerdido()" data-button>Enviar</button>
+        </form>
+      </div>
+
+    </section>
   </main>
 
   <footer>
@@ -96,6 +120,7 @@
   </footer>
   <script src="./scripts/navbar.js"></script>
   <script src="./scripts/efeitoDigitação.js"></script>
+  <script type="module" src="./scripts/cadastraPetPerdido.js"></script>
   <script type="module" src="./scripts/petsPerdidos.js"></script>
 </body>
 
