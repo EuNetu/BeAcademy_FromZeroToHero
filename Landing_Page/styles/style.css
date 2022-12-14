@@ -56,13 +56,6 @@ p {
     letter-spacing: 0.05rem;
 }
 
-section{
-    flex-direction: column;
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
-    margin: 3em 0;
-}
 
 a {
     color: #fff;
@@ -113,14 +106,6 @@ nav {
     transition: 0.3s;
 }
 
-.container {
-    min-height: 50vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
 .section-title {
     font-size: 5rem;
     font-weight: 500;
@@ -136,12 +121,15 @@ nav {
 
 
 #presentation {
-    z-index: 1;
     display: flex;
-    margin: 12px 35px 0;
-    background-color: #fff;
-    box-shadow: 1px 1px 5px #e2dede;
+    margin: 80px 35px 0px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(226 222 222) 1px 1px 5px;
     border-radius: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
 }
 
 /* #presentation .img-presentation {
@@ -163,7 +151,7 @@ nav {
     display: flex;
     font-family: 'Austie Bost Kitten Klub', sans-serif;
     width: fit-content;
-    font-size: 7rem;
+    font-size: 13em;
     letter-spacing: 0.1rem;
     text-align: center;
     overflow: hidden;
@@ -214,13 +202,12 @@ main {
 
 #objetivos .objetivos {
     flex-direction: column;
-    max-width: 1200px;
     display: flex;
     align-items: center;
 }
 
 #objetivos .objetivos .header {
-    padding: 30px 0;
+    padding: 0 0 30px 0;
 }
 
 #objetivos img {
@@ -310,32 +297,47 @@ main {
 }
 
 #perdidos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+    margin-bottom: 60px;
     background-color: #f7f8fc;
     color: #10182f;
     box-shadow: 1px 1px 5px #e2dede;
 }
 
-.conteiner-perdidos {
-    display: flex;
-    width: 1040px;
-    justify-content: space-evenly;
-
+#perdidos img {
+    width: 30vw;
 }
 
-.card {
-    margin: 10px;
-    background-color: #fff;
+.conteiner-perdidos{
+    width: 100% !important;
+    width: max-content;
+}
+
+.cards{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1250px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 550px) {
+    .cards { grid-template-columns: repeat(1, 1fr); }
+}
+
+
+article{
+    width: 90%;
+    margin: 25px;
+    background-color: #ffffff;
+    color: #d86e27;
     border-radius: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    width: 300px;
+    padding:15px;
+    box-shadow: 1px 1px 5px #e2dede;
 }
 
-#formulario{
+#formulario {
     background-color: #f7f8fc;
     padding: 3em;
     box-shadow: 1px 1px 5px #e2dede;
@@ -347,7 +349,7 @@ main {
     text-align: center;
 }
 
-.container-formulario{
+.container-formulario {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -366,9 +368,14 @@ button {
     display: block;
 }
 
+button{
+    font: inherit;
+    padding: 1.25rem;
+    font-weight: 700;
+}
+
 input,
-textarea,
-button {
+textarea{
     width: 100%;
     font: inherit;
     padding: 1.25rem;
@@ -394,10 +401,12 @@ textarea:focus {
     box-shadow: 0 0 0 0.3125rem #d86e27;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     width: 1rem;
 }
-input[type="checkbox"]:focus, input[type="checkbox"]:hover{
+
+input[type="checkbox"]:focus,
+input[type="checkbox"]:hover {
     box-shadow: none;
 }
 
@@ -410,8 +419,8 @@ textarea {
     resize: vertical;
 }
 
-.form-opcional{
-    display:none;
+.form-opcional {
+    display: none;
 }
 
 button {
@@ -434,10 +443,10 @@ button:disabled {
     background: #555b69;
 }
 
-.content-form{
+.content-form {
     display: flex;
     align-items: flex-end;
-    justify-content:space-between;
+    justify-content: space-between;
 }
 
 footer p {
@@ -503,7 +512,7 @@ footer {
     }
 }
 
-@media (max-width: 999px) {
+@media (max-width: 1000px) {
     body {
         overflow-x: hidden;
     }
@@ -513,7 +522,6 @@ footer {
     }
 
     .nav-list {
-        display: none;
         position: absolute;
         top: 8vh;
         right: 0;
@@ -525,6 +533,10 @@ footer {
         justify-content: space-around;
         transform: translateX(100%);
         transition: transform 0.3s ease-in;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in;
+        transition-delay: 0s;
+        transition-property: transform;
     }
 
     .nav-list li {
@@ -534,10 +546,6 @@ footer {
 
     .mobile-menu {
         display: block;
-    }
-
-    #presentation {
-        height: 30vh;
     }
 
     #presentation .img-presentation {
@@ -553,17 +561,10 @@ footer {
 
     #presentation h1 {
 
-        font-size: 4rem;
+        font-size: 7rem;
         top: 0;
     }
 
-    .container-titulo {
-        height: 30vh;
-        position: absolute;
-        margin: 10vh 0vw;
-        top: 0;
-    }
-    
 }
 
 .nav-list.active {

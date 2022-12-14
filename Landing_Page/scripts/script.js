@@ -53,7 +53,7 @@ mobileNavbar.init();
 const typedTextSpan = document.querySelector(".texto-escrito");
 const cursorSpan = document.querySelector(".cursor");
 
-const arrayTitulos = ["Family", "Friendly", "FIND"];
+const arrayTitulos = ["Family", "Friendly", "Find"];
 let arrayTitulosIndex = 0;
 let indexCaracter = 0;
 
@@ -67,7 +67,7 @@ function escrever() {
     setTimeout(escrever, 150);
   } else {
     cursorSpan.classList.remove("escrevendo");
-    if (arrayTitulos[arrayTitulosIndex] != "FIND") {
+    if (arrayTitulos[arrayTitulosIndex] != "Find") {
       setTimeout(erase, 150);
     }
   }
@@ -101,22 +101,29 @@ function listarPetsPerdidos() {
     const articleNovo = document.createElement("article");
     const paragrafoNovo = document.createElement("p");
     const botaoExcluir = document.createElement("button");
-
+    // const imgSalvo = document.createElement("img");
+    
+    // imgSalvo.src = "./assets/img/salvo.svg";
+    // imgSalvo.style.width = '30px';
+    botaoExcluir.style.color='orange'
+    botaoExcluir.innerHTML = 'APAGAR'
     articleNovo.id = `${arrayPetsPerdidos[i].id}`;
     articleNovo.classList.add("card");
     botaoExcluir.onclick = function () {
       removeItem(this);
     };
 
+    // botaoExcluir.appendChild(imgSalvo);
     articleNovo.appendChild(paragrafoNovo);
     articleNovo.appendChild(botaoExcluir);
-    paragrafoNovo.innerHTML = `Nome do dono: ${arrayPetsPerdidos[i].nomeDono} <br> Nome do Pet: ${arrayPetsPerdidos[i].nomePet} <br> Raça do Pet: ${arrayPetsPerdidos[i].raca} <br> Ultima vez visto: ${arrayPetsPerdidos[i].ultimaVista} <br> Observação: ${arrayPetsPerdidos[i].observacao}`;
+    paragrafoNovo.innerHTML = `Nome do dono: ${arrayPetsPerdidos[i].nomeDono} <br> Nome do Pet: ${arrayPetsPerdidos[i].nomePet} <br> Raça do Pet: ${arrayPetsPerdidos[i].raca} <br> Ultima vez visto: ${arrayPetsPerdidos[i].ultimaVista} <br> Observação: ${arrayPetsPerdidos[i].observacao}<br> Cidade: ${arrayPetsPerdidos[i].cidade} <br> Bairro: ${arrayPetsPerdidos[i].bairro} <br> Rua: ${arrayPetsPerdidos[i].rua}${arrayPetsPerdidos[i].numeroCasa}`;
 
     divCard.appendChild(articleNovo);
   }
 }
 
 //FUNÇÃO PARA EXCLUIR UM PET PERDIDO
+const divAux = document.createElement("div");
 const imgCachorroFeliz = document.createElement("img");
 imgCachorroFeliz.src = "./assets/img/nenhum_pet_perdido.svg";
 function removeItem(r) {
@@ -124,7 +131,10 @@ function removeItem(r) {
   arrayPetsPerdidos.splice(arrayPetsPerdidos.indexOf(card.id), 1);
   divCard.innerHTML = "";
   listarPetsPerdidos();
-  arrayPetsPerdidos.length == 0 ? divCard.appendChild(imgCachorroFeliz) : null;
+  if (arrayPetsPerdidos.length == 0) {
+    divCard.appendChild(divAux);
+    divCard.appendChild(imgCachorroFeliz);
+  }
 }
 
 //CADASTRAMENTO DE PETS PERDIDOS
@@ -137,10 +147,10 @@ form.addEventListener("submit", (e) => {
   const raca = document.querySelector("#raca").value;
   const ultimaVista = document.querySelector("#ultimaVista").value;
   const observacao = document.querySelector("#observacao").value;
-  const cidade = document.querySelector("#cidade");
-  const bairro = document.querySelector("#bairro");
-  const rua = document.querySelector("#rua");
-  const numeroCasa = document.querySelector("#numeroCasa");
+  const cidade = document.querySelector("#cidade").value;
+  const bairro = document.querySelector("#bairro").value;
+  const rua = document.querySelector("#rua").value;
+  const numeroCasa = document.querySelector("#numeroCasa").value;
   const novoDesaparecido = new PetPerdido(
     arrayPetsPerdidos.length,
     nomeDono,
@@ -154,6 +164,7 @@ form.addEventListener("submit", (e) => {
     rua,
     numeroCasa
   );
+  console.log(novoDesaparecido);
   divCard.innerHTML = "";
   arrayPetsPerdidos.push(novoDesaparecido);
   listarPetsPerdidos();
