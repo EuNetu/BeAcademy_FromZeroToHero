@@ -237,4 +237,3 @@ document.getElementById("imagemPet").onchange = function (evt) {
     srcImagemPet = "Arquivo de Imagem Não Suportado";
   }
 };
-
