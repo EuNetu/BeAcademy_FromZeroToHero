@@ -6,6 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Euclides Neto">
+  <meta name="title" content="PetFind">
+  <meta name="description" content="Este site tem como objetivo, divulgar animais desaparecidos.">
+  <meta name="keywords" content="pet, pets, animal, estimação, amigo, gato, cachorro, perdido, desaparecido">
+  <meta property="og:title" content="PetFind">
+  <meta property="og:description" content="Este site tem como objetivo, divulgar animais desaparecidos.">
+  <meta property="og:image" content="./assets/img/gato_sombra_chuva.gif">
+  <link rel="shortcut icon" href="./assets/img/logo_pet.svg">
   <link rel="stylesheet" href="./styles/style.css">
   <title>PET FIND</title>
 </head>
@@ -22,9 +29,8 @@
       <ul class="nav-list">
         <li><a href="#">Início</a></li>
         <li><a href="#objetivos">Sobre</a></li>
-        <li><a href="#">Amigos Perdidos</a></li>
-        <li><a href="#">Encontrar Meu Amigo</a></li>
-        <li><a href="#">Contatos</a></li>
+        <li><a href="#perdidos">Amigos Perdidos</a></li>
+        <li><a href="#formulario">Encontrar Meu Amigo</a></li>
       </ul>
     </nav>
 
@@ -37,7 +43,7 @@
           <h1>PET<span class="texto-escrito"></span><span class="cursor">&nbsp;</span></h1>
         </div>
         <div class="img-presentation">
-          <img src="./assets/img/pets.png">
+          <!-- <img src="./assets/img/pets.png"> -->
         </div>
       </div>
     </div>
@@ -82,33 +88,69 @@
         </div>
       </div>
     </section>
+
     <div class="linha"></div>
+
     <Section id="perdidos">
       <div class="conteiner-perdidos">
         <section class="cards">
+          <img src="./assets/img/nenhum_pet_perdido.svg" alt="">
         </section>
       </div>
     </section>
+
     <div class="linha"></div>
+
     <section id="formulario">
       <div class="header-formulario">
         <h2>Cadastro</h2>
         <p>Registre o desaparecimento do seu amigo</p>
       </div>
-      
+
       <div class="container-formulario">
-        <form method="POST">
-          <label for="nomeDono">Seu nome</label>
-          <input type="text" maxlength="40" name="nomeDono" id="nomeDono" required />
-          <label for="telefone">Telefone</label>
-          <input type="tel" maxlength="11" name="telefone" id="telefone" required />
-          <label for="nomePet">Nome do seu amigo perdido</label>
-          <input type="tel" name="nomePet" id="nomePet" required />
-          <label for="ultimaVista">Última vez visto no(a)</label>
-          <textarea name="ultimaVista" maxlength="150" id="ultimaVista" required></textarea>
+        <form class="pet-form">
+          <div class="content-form">
+            <div class="span-form">
+              <label for="nomeDono">Seu nome</label>
+              <input type="text" maxlength="40" name="nomeDono" id="nomeDono" required value="teste" />
+            </div>
+            <div class="span-form">
+              <label for="telefone">Telefone</label>
+              <input type="tel" maxlength="11" name="telefone" id="telefone" required value="teste" />
+            </div>
+          </div>
+
+          <div class="content-form">
+            <div class="span-form">
+              <label for="nomePet">Nome do amigo perdido</label>
+              <input type="text" name="nomePet" id="nomePet" required value="teste" />
+            </div>
+            <div class="span-form">
+              <label for="raca">Raça</label>
+              <input type="text" name="raca" id="raca" required value="teste" />
+            </div>
+          </div>
+          <div class="span-form">
+            <label for="ultimaVista">Última vez visto no(a)</label>
+            <textarea name="ultimaVista" maxlength="150" id="ultimaVista" required>opa</textarea>
+          </div>
           <label for="observacao">Observação</label>
-          <textarea name="observacao" maxlength="150" id="observacao" required></textarea>
-          <button type="submit" onclick="cadastraPetPerdido()" data-button>Enviar</button>
+          <textarea name="observacao" maxlength="150" id="observacao" required>opa</textarea>
+          <label for="form-opcional">Deseja informar seu endereço?</label>
+          <input type="checkbox" name="form-opcional" id="form-opcional" />
+          <div class="form-opcional">
+            <label for="cep">CEP</label>
+            <input type="text" name="cep" id="cep" value="teste" />
+            <label for="cidade">Cidade</label>
+            <input type="text" name="cidade" id="cidade" value="teste" />
+            <label for="bairro">Bairro</label>
+            <input type="text" name="bairro" id="bairro" value="teste" />
+            <label for="rua">Rua</label>
+            <input type="text" name="rua" id="rua" value="teste" />
+            <label for="numeroCasa">Número Da Casa</label>
+            <input type="text" name="numeroCasa" id="numeroCasa" value="teste" />
+          </div>
+          <button>Enviar</button>
         </form>
       </div>
 
@@ -118,10 +160,7 @@
   <footer>
     <p class="copyright">Feito por Euclides Neto &copy; Todos os direitos reservados - 2022</p>
   </footer>
-  <script src="./scripts/navbar.js"></script>
-  <script src="./scripts/efeitoDigitação.js"></script>
-  <script type="module" src="./scripts/cadastraPetPerdido.js"></script>
-  <script type="module" src="./scripts/petsPerdidos.js"></script>
+  <script async type="module" src="./scripts/script.js"></script>
 </body>
 
 </html>

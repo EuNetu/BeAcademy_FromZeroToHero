@@ -1,14 +1,14 @@
 "use strict";
-import arrayCachorrosPeredidos from "../json/db_pets_perdidos.json" assert { type: "json" };
+import { PetPerdido} from "../model/PetPerdido.js";
 
 const divCard = document.querySelector(".cards");
 
-for (let i = 0; i < arrayCachorrosPeredidos.length; i++) {
+for (let i = 0; i < arrayPetsPeredidos.length; i++) {
   const articleNovo = document.createElement("article");
   articleNovo.classList.add("card");
   const paragrafoNovo = document.createElement("p");
   articleNovo.appendChild(paragrafoNovo);
-  paragrafoNovo.innerHTML = `Nome do dono: ${arrayCachorrosPeredidos[i].nomeDono} <br> Nome do Pet: ${arrayCachorrosPeredidos[i].nomePet}`;
+  paragrafoNovo.innerHTML = `Nome do dono: ${arrayPetsPeredidos[i].nomeDono} <br> Nome do Pet: ${arrayPetsPeredidos[i].nomePet}`;
 
   divCard.appendChild(articleNovo);
 }

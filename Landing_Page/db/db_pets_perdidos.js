@@ -7,5 +7,4 @@
     "nomeDono": "Camilla",
     "nomePet": "Nami"
   }
-
 ]

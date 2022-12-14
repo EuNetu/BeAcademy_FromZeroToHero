@@ -114,7 +114,7 @@ nav {
 }
 
 .container {
-    min-height: 100vh;
+    min-height: 50vh;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -138,8 +138,10 @@ nav {
 #presentation {
     z-index: 1;
     display: flex;
-    margin: 10px 35px 0;
+    margin: 12px 35px 0;
     background-color: #fff;
+    box-shadow: 1px 1px 5px #e2dede;
+    border-radius: 5px;
 }
 
 /* #presentation .img-presentation {
@@ -153,10 +155,7 @@ nav {
 }
 
 .container-titulo {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-left: 31px;
 }
 
 .container-titulo h1 {
@@ -210,7 +209,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 #objetivos .objetivos {
@@ -240,6 +239,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    box-shadow: 1px 1px 5px #e2dede;
 }
 
 #objetivos .geral-objetivos p {
@@ -265,13 +265,15 @@ main {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    background-image: linear-gradient(50deg, #ffd629 50%, #000000 100%);
-    color: #240d00;
+    background: #f7f8fc;
+    background-image: linear-gradient(136deg, #f7f8fc 25%, #cfcfcf 101%);
+    color: #491502
 }
 
 #objetivos .obj-info h2 {
     font-size: 4.5rem;
     font-weight: 500;
+    font-family: system;
 }
 
 #objetivos .obj-info h3 {
@@ -294,8 +296,9 @@ main {
     top: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.4;
-    background-image: linear-gradient(60deg, #000000 50%, #000000 50%);
+    opacity: 0.9;
+    z-index: -1;
+    background-image: linear-gradient(60deg, #f7f8fc 50%, #f7f8fc 50%);
 }
 
 #objetivos .obj-img img {
@@ -313,13 +316,13 @@ main {
     margin: 0;
     background-color: #f7f8fc;
     color: #10182f;
+    box-shadow: 1px 1px 5px #e2dede;
 }
 
 .conteiner-perdidos {
     display: flex;
     width: 1040px;
     justify-content: space-evenly;
-    flex-wrap: wrap;
 
 }
 
@@ -335,14 +338,16 @@ main {
 #formulario{
     background-color: #f7f8fc;
     padding: 3em;
+    box-shadow: 1px 1px 5px #e2dede;
+    border-radius: 5px;
 }
 
 .header-formulario {
     padding: 0 0 2em 0;
+    text-align: center;
 }
 
 .container-formulario{
-    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -389,6 +394,13 @@ textarea:focus {
     box-shadow: 0 0 0 0.3125rem #d86e27;
 }
 
+input[type="checkbox"]{
+    width: 1rem;
+}
+input[type="checkbox"]:focus, input[type="checkbox"]:hover{
+    box-shadow: none;
+}
+
 label {
     margin-bottom: 0.5rem;
     color: #84868f;
@@ -396,6 +408,10 @@ label {
 
 textarea {
     resize: vertical;
+}
+
+.form-opcional{
+    display:none;
 }
 
 button {
@@ -418,6 +434,12 @@ button:disabled {
     background: #555b69;
 }
 
+.content-form{
+    display: flex;
+    align-items: flex-end;
+    justify-content:space-between;
+}
+
 footer p {
     font-size: 15px;
 }
@@ -427,11 +449,9 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 2;
     color: rgb(255, 255, 255);
-    font-size: 15px;
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 
@@ -493,6 +513,7 @@ footer {
     }
 
     .nav-list {
+        display: none;
         position: absolute;
         top: 8vh;
         right: 0;
@@ -542,6 +563,7 @@ footer {
         margin: 10vh 0vw;
         top: 0;
     }
+    
 }
 
 .nav-list.active {
