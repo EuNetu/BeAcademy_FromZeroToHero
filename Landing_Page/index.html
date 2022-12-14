@@ -6,21 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Euclides Neto">
-  <meta name="title" content="PetFind">
+  <meta name="title" content="PetFinder">
   <meta name="description" content="Este site tem como objetivo, divulgar animais desaparecidos.">
   <meta name="keywords" content="pet, pets, animal, estimação, amigo, gato, cachorro, perdido, desaparecido">
-  <meta property="og:title" content="PetFind">
+  <meta property="og:title" content="PetFinder">
   <meta property="og:description" content="Este site tem como objetivo, divulgar animais desaparecidos.">
   <meta property="og:image" content="./assets/img/gato_sombra_chuva.gif">
   <link rel="shortcut icon" href="./assets/img/logo_pet.svg">
   <link rel="stylesheet" href="./styles/style.css">
-  <title>PET FIND</title>
+  <title>PET FINDer</title>
 </head>
 
 <body>
   <header>
     <nav class="menu">
-      <a href="#" class="logo">Pet Find</a>
+      <a href="#" class="logo">Pet Finder</a>
       <div class="mobile-menu">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -113,46 +113,48 @@
           <div class="content-form">
             <div class="span-form">
               <label for="nomeDono">Seu nome</label>
-              <input type="text" maxlength="40" name="nomeDono" id="nomeDono" required />
+              <input type="text" placeholder="Ex: Euclides Neto" maxlength="40" name="nomeDono" id="nomeDono"
+                required />
             </div>
             <div class="span-form">
               <label for="telefone">Telefone</label>
-              <input type="tel" maxlength="11" name="telefone" id="telefone" required />
+              <input type="tel" placeholder="Ex: 84998766108" maxlength="11" name="telefone" id="telefone" required />
             </div>
           </div>
 
           <div class="content-form">
             <div class="span-form">
               <label for="nomePet">Nome do amigo perdido</label>
-              <input type="text" name="nomePet" id="nomePet" required/>
+              <input type="text" maxlength="25" placeholder="Ex: BOB" name="nomePet" id="nomePet" required />
             </div>
             <div class="span-form">
               <label for="raca">Tipo - Raça</label>
-              <input type="text" name="raca" id="raca" required/>
+              <input type="text" maxlength="25" placeholder="Ex: Cachorro - Boxer" name="raca" id="raca" required />
             </div>
           </div>
           <div class="span-form">
             <label for="imagemPet">Imagem do seu amigo (PNG/JPG)</label>
-            <input type="file" name="imagemPet" id="imagemPet" required/>
-            <label for="ultimaVista">Última vez visto no(a)</label>
-            <textarea name="ultimaVista" maxlength="150" id="ultimaVista" required></textarea>
+            <input type="file"  name="imagemPet" id="imagemPet" required />
+            <label for="ultimaVista">Última vez visto no(a) (max: 50)</label>
+            <textarea name="ultimaVista" placeholder="Ex: Perto da Upa" maxlength="50" id="ultimaVista"
+              required></textarea>
           </div>
-          <label for="observacao">Observação</label>
-          <textarea name="observacao" maxlength="150" id="observacao" required></textarea>
+          <label for="observacao">Observação (max: 50)</label>
+          <textarea name="observacao" placeholder="(OPICIONAL)" maxlength="50" id="observacao"></textarea>
           <label for="form-opcional">Deseja informar seu endereço?</label>
           <input type="checkbox" name="form-opcional" id="form-opcional" />
 
           <div class="form-opcional">
             <label for="cep">CEP</label>
-            <input type="text" name="cep" id="cep" />
+            <input placeholder="(OPICIONAL)" maxlength="9" type="text" name="cep" id="cep" />
             <label for="cidade">Cidade</label>
-            <input type="text" name="cidade" id="cidade" />
+            <input placeholder="(OPICIONAL)" maxlength="80" type="text" name="cidade" id="cidade" />
             <label for="bairro">Bairro</label>
-            <input type="text" name="bairro" id="bairro" />
+            <input placeholder="(OPICIONAL)" maxlength="80" type="text" name="bairro" id="bairro" />
             <label for="rua">Rua</label>
-            <input type="text" name="rua" id="rua" />
+            <input placeholder="(OPICIONAL)" maxlength="80" type="text" name="rua" id="rua" />
             <label for="numeroCasa">Número Da Casa</label>
-            <input type="text" name="numeroCasa" id="numeroCasa" />
+            <input placeholder="(OPICIONAL)" maxlength="8" type="text" name="numeroCasa" id="numeroCasa" />
 
           </div>
           <button>Enviar</button>

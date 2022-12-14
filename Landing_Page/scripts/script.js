@@ -3,7 +3,7 @@ import { PetPerdido } from "../model/PetPerdido.js";
 
 let arrayPetsPerdidos = [];
 
-//NAVBAR
+//Efeito da responsividade da NavBar
 class MobileNavbar {
   constructor(mobileMenu, navList, navLinks) {
     this.mobileMenu = document.querySelector(mobileMenu);
@@ -53,7 +53,7 @@ mobileNavbar.init();
 const typedTextSpan = document.querySelector(".texto-escrito");
 const cursorSpan = document.querySelector(".cursor");
 
-const arrayTitulos = ["Family", "Friendly", "Find"];
+const arrayTitulos = ["Family", "Friendly", "Finder"];
 let arrayTitulosIndex = 0;
 let indexCaracter = 0;
 
@@ -67,7 +67,7 @@ function escrever() {
     setTimeout(escrever, 150);
   } else {
     cursorSpan.classList.remove("escrevendo");
-    if (arrayTitulos[arrayTitulosIndex] != "Find") {
+    if (arrayTitulos[arrayTitulosIndex] != "Finder") {
       setTimeout(erase, 150);
     }
   }
@@ -117,7 +117,7 @@ function listarPetsPerdidos() {
       removeItem(this);
     };
     console.log(imgPet.src);
-    arrayPetsPerdidos[i].srcImagemPet =="Arquivo de Imagem Não Suportado"
+    arrayPetsPerdidos[i].srcImagemPet == "Arquivo de Imagem Não Suportado"
       ? articleNovo.appendChild(imgPetError)
       : articleNovo.appendChild(imgPet);
     articleNovo.appendChild(paragrafoNovo);
@@ -208,9 +208,11 @@ function getCep() {
     promise.then((response) => {
       const jsonPromise = response.json();
       jsonPromise.then((data) => {
-        cidade.value = `${data.city}`;
-        bairro.value = `${data.neighborhood}`;
-        rua.value = `${data.street}`;
+        if (data.city) {
+          cidade.value = `${data.city}`;
+          bairro.value = `${data.neighborhood}`;
+          rua.value = `${data.street}`;
+        }
       });
     });
   } catch (e) {
@@ -235,3 +237,4 @@ document.getElementById("imagemPet").onchange = function (evt) {
     srcImagemPet = "Arquivo de Imagem Não Suportado";
   }
 };
+
