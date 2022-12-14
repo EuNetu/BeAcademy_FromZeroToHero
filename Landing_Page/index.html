@@ -113,43 +113,47 @@
           <div class="content-form">
             <div class="span-form">
               <label for="nomeDono">Seu nome</label>
-              <input type="text" maxlength="40" name="nomeDono" id="nomeDono" required value="teste" />
+              <input type="text" maxlength="40" name="nomeDono" id="nomeDono" required />
             </div>
             <div class="span-form">
               <label for="telefone">Telefone</label>
-              <input type="tel" maxlength="11" name="telefone" id="telefone" required value="teste" />
+              <input type="tel" maxlength="11" name="telefone" id="telefone" required />
             </div>
           </div>
 
           <div class="content-form">
             <div class="span-form">
               <label for="nomePet">Nome do amigo perdido</label>
-              <input type="text" name="nomePet" id="nomePet" required value="teste" />
+              <input type="text" name="nomePet" id="nomePet" required/>
             </div>
             <div class="span-form">
               <label for="raca">Tipo - Raça</label>
-              <input type="text" name="raca" id="raca" required value="teste" />
+              <input type="text" name="raca" id="raca" required/>
             </div>
           </div>
           <div class="span-form">
+            <label for="imagemPet">Imagem do seu amigo (PNG/JPG)</label>
+            <input type="file" name="imagemPet" id="imagemPet" required/>
             <label for="ultimaVista">Última vez visto no(a)</label>
-            <textarea name="ultimaVista" maxlength="150" id="ultimaVista" required>opa</textarea>
+            <textarea name="ultimaVista" maxlength="150" id="ultimaVista" required></textarea>
           </div>
           <label for="observacao">Observação</label>
-          <textarea name="observacao" maxlength="150" id="observacao" required>opa</textarea>
+          <textarea name="observacao" maxlength="150" id="observacao" required></textarea>
           <label for="form-opcional">Deseja informar seu endereço?</label>
           <input type="checkbox" name="form-opcional" id="form-opcional" />
+
           <div class="form-opcional">
             <label for="cep">CEP</label>
-            <input type="text" name="cep" id="cep" value="teste" />
+            <input type="text" name="cep" id="cep" />
             <label for="cidade">Cidade</label>
-            <input type="text" name="cidade" id="cidade" value="teste" />
+            <input type="text" name="cidade" id="cidade" />
             <label for="bairro">Bairro</label>
-            <input type="text" name="bairro" id="bairro" value="teste" />
+            <input type="text" name="bairro" id="bairro" />
             <label for="rua">Rua</label>
-            <input type="text" name="rua" id="rua" value="teste" />
+            <input type="text" name="rua" id="rua" />
             <label for="numeroCasa">Número Da Casa</label>
-            <input type="text" name="numeroCasa" id="numeroCasa" value="teste" />
+            <input type="text" name="numeroCasa" id="numeroCasa" />
+
           </div>
           <button>Enviar</button>
         </form>

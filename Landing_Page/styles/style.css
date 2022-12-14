@@ -132,12 +132,6 @@ nav {
     height: 50vh;
 }
 
-/* #presentation .img-presentation {
-    width: 27%;
-    background-image: url(../assets/img/back_logo.png);
-    background-size: 100%;
-} */
-
 .img-presentation {
     width: 100%
 }
@@ -303,7 +297,7 @@ main {
     box-shadow: 1px 1px 5px #e2dede;
 }
 
-#perdidos img {
+#perdidos img{
     width: 30vw;
 }
 
@@ -335,6 +329,12 @@ article{
     border-radius: 10px;
     padding:15px;
     box-shadow: 1px 1px 5px #e2dede;
+}
+
+.imgPetPerdido:hover{
+    position: relative; 
+    width: 300px !important;
+    height: 300px !important;
 }
 
 #formulario {
@@ -555,7 +555,7 @@ footer {
     #objetivos .header img {
         width: 70%;
         position: relative;
-        top: 73px;
+        top: 77.7px;
         z-index: 1;
     }
 
@@ -563,6 +563,10 @@ footer {
 
         font-size: 7rem;
         top: 0;
+    }
+
+    #perdidos img{
+        margin: 0 32vw 0;
     }
 
 }

@@ -5,6 +5,7 @@ export class PetPerdido {
     telefone,
     nomePet,
     raca,
+    srcImagemPet,
     ultimaVista,
     observacao,
     cidade,
@@ -17,6 +18,7 @@ export class PetPerdido {
     this.telefone = telefone;
     this.nomePet = nomePet;
     this.raca = raca;
+    this.srcImagemPet = srcImagemPet;
     this.ultimaVista = ultimaVista;
     this.observacao = observacao;
     if (cidade != "") {

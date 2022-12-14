@@ -93,7 +93,7 @@ function erase() {
 
 escrever();
 
-//MOPSTRAGEM DOS PETS PERDIDOS
+//MOSTRAGEM DOS PETS PERDIDOS
 const divCard = document.querySelector(".cards");
 
 function listarPetsPerdidos() {
@@ -101,44 +101,36 @@ function listarPetsPerdidos() {
     const articleNovo = document.createElement("article");
     const paragrafoNovo = document.createElement("p");
     const botaoExcluir = document.createElement("button");
-    // const imgSalvo = document.createElement("img");
-    
-    // imgSalvo.src = "./assets/img/salvo.svg";
-    // imgSalvo.style.width = '30px';
-    botaoExcluir.style.color='orange'
-    botaoExcluir.innerHTML = 'APAGAR'
+    const imgPet = document.createElement("img");
+    const imgPetError = document.createElement("p");
+
+    imgPet.src = arrayPetsPerdidos[i].srcImagemPet;
+    imgPet.style.width = "60px";
+    imgPet.style.height = "60px";
+    imgPet.classList.add("imgPetPerdido");
+    imgPetError.innerHTML = "Arquivo de Imagem Não Suportado";
+    botaoExcluir.style.color = "orange";
+    botaoExcluir.innerHTML = "APAGAR";
     articleNovo.id = `${arrayPetsPerdidos[i].id}`;
     articleNovo.classList.add("card");
     botaoExcluir.onclick = function () {
       removeItem(this);
     };
-
-    // botaoExcluir.appendChild(imgSalvo);
+    console.log(imgPet.src);
+    arrayPetsPerdidos[i].srcImagemPet =="Arquivo de Imagem Não Suportado"
+      ? articleNovo.appendChild(imgPetError)
+      : articleNovo.appendChild(imgPet);
     articleNovo.appendChild(paragrafoNovo);
     articleNovo.appendChild(botaoExcluir);
-    paragrafoNovo.innerHTML = `Nome do dono: ${arrayPetsPerdidos[i].nomeDono} <br> Nome do Pet: ${arrayPetsPerdidos[i].nomePet} <br> Raça do Pet: ${arrayPetsPerdidos[i].raca} <br> Ultima vez visto: ${arrayPetsPerdidos[i].ultimaVista} <br> Observação: ${arrayPetsPerdidos[i].observacao}<br> Cidade: ${arrayPetsPerdidos[i].cidade} <br> Bairro: ${arrayPetsPerdidos[i].bairro} <br> Rua: ${arrayPetsPerdidos[i].rua}${arrayPetsPerdidos[i].numeroCasa}`;
+    paragrafoNovo.innerHTML = `Nome do dono: ${arrayPetsPerdidos[i].nomeDono} <br> Nome do Pet: ${arrayPetsPerdidos[i].nomePet} <br> Tipo - Raça: ${arrayPetsPerdidos[i].raca} <br> Ultima vez visto: ${arrayPetsPerdidos[i].ultimaVista} <br> Observação: ${arrayPetsPerdidos[i].observacao}<br> Cidade: ${arrayPetsPerdidos[i].cidade} <br> Bairro: ${arrayPetsPerdidos[i].bairro} <br> Rua: ${arrayPetsPerdidos[i].rua}${arrayPetsPerdidos[i].numeroCasa}`;
 
     divCard.appendChild(articleNovo);
   }
 }
 
-//FUNÇÃO PARA EXCLUIR UM PET PERDIDO
-const divAux = document.createElement("div");
-const imgCachorroFeliz = document.createElement("img");
-imgCachorroFeliz.src = "./assets/img/nenhum_pet_perdido.svg";
-function removeItem(r) {
-  const card = r.parentNode;
-  arrayPetsPerdidos.splice(arrayPetsPerdidos.indexOf(card.id), 1);
-  divCard.innerHTML = "";
-  listarPetsPerdidos();
-  if (arrayPetsPerdidos.length == 0) {
-    divCard.appendChild(divAux);
-    divCard.appendChild(imgCachorroFeliz);
-  }
-}
-
 //CADASTRAMENTO DE PETS PERDIDOS
 const form = document.querySelector(".pet-form");
+let srcImagemPet;
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const nomeDono = document.querySelector("#nomeDono").value;
@@ -157,6 +149,7 @@ form.addEventListener("submit", (e) => {
     telefone,
     nomePet,
     raca,
+    srcImagemPet,
     ultimaVista,
     observacao,
     bairro,
@@ -164,11 +157,25 @@ form.addEventListener("submit", (e) => {
     rua,
     numeroCasa
   );
-  console.log(novoDesaparecido);
   divCard.innerHTML = "";
   arrayPetsPerdidos.push(novoDesaparecido);
   listarPetsPerdidos();
 });
+
+//FUNÇÃO PARA EXCLUIR UM PET PERDIDO
+const divAux = document.createElement("div");
+const imgCachorroFeliz = document.createElement("img");
+imgCachorroFeliz.src = "./assets/img/nenhum_pet_perdido.svg";
+function removeItem(r) {
+  const card = r.parentNode;
+  arrayPetsPerdidos.splice(arrayPetsPerdidos.indexOf(card.id), 1);
+  divCard.innerHTML = "";
+  listarPetsPerdidos();
+  if (arrayPetsPerdidos.length == 0) {
+    divCard.appendChild(divAux);
+    divCard.appendChild(imgCachorroFeliz);
+  }
+}
 
 // ADICIONANDO EVENTO PARA O CAMPO CEP
 const divFormOpcional = document.querySelector(".form-opcional");
@@ -210,3 +217,21 @@ function getCep() {
     console.error(e);
   }
 }
+
+//Pegar a imagem do PET
+
+document.getElementById("imagemPet").onchange = function (evt) {
+  let files = evt.target.files;
+  console.log(files[0].type);
+  if (files[0].type == "image/png" || files[0].type == "image/jpeg") {
+    var fr = new FileReader();
+    fr.onload = function () {
+      console.log("pa");
+      srcImagemPet = fr.result;
+    };
+    fr.readAsDataURL(files[0]);
+  } else {
+    console.log("paelse");
+    srcImagemPet = "Arquivo de Imagem Não Suportado";
+  }
+};
