@@ -25,7 +25,7 @@ export class PetPerdido {
       this.cidade = cidade;
       this.bairro = bairro;
       this.rua = rua;
-      this.numeroCasa = ", n°"+numeroCasa;
+      this.numeroCasa = ", n°" + numeroCasa;
     } else {
       this.cidade = "Não Informado";
       this.bairro = "Não Informado";

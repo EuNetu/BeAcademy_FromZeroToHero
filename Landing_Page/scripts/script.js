@@ -14,7 +14,7 @@ class MobileNavbar {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  animateLinks() {
+  linksAnimacao() {
     this.navLinks.forEach((link, index) => {
       link.style.animation
         ? (link.style.animation = "")
@@ -27,7 +27,7 @@ class MobileNavbar {
   handleClick() {
     this.navList.classList.toggle(this.activeClass);
     this.mobileMenu.classList.toggle(this.activeClass);
-    this.animateLinks();
+    this.linksAnimacao();
   }
 
   addClickEvent() {
@@ -50,39 +50,38 @@ const mobileNavbar = new MobileNavbar(
 mobileNavbar.init();
 
 //EFEITO DE DIGITAÇÃO
-const typedTextSpan = document.querySelector(".texto-escrito");
+const textoSpan = document.querySelector(".texto-escrito");
 const cursorSpan = document.querySelector(".cursor");
 
 const arrayTitulos = ["Family", "Friendly", "Finder"];
 let arrayTitulosIndex = 0;
-let indexCaracter = 0;
+let indexLetra = 0;
 
 function escrever() {
-  if (indexCaracter < arrayTitulos[arrayTitulosIndex].length) {
+  if (indexLetra < arrayTitulos[arrayTitulosIndex].length) {
     if (!cursorSpan.classList.contains("escrevendo"))
       cursorSpan.classList.add("escrevendo");
-    typedTextSpan.textContent +=
-      arrayTitulos[arrayTitulosIndex].charAt(indexCaracter);
-    indexCaracter++;
+    textoSpan.textContent += arrayTitulos[arrayTitulosIndex].charAt(indexLetra);
+    indexLetra++;
     setTimeout(escrever, 150);
   } else {
     cursorSpan.classList.remove("escrevendo");
     if (arrayTitulos[arrayTitulosIndex] != "Finder") {
-      setTimeout(erase, 150);
+      setTimeout(apagar, 150);
     }
   }
 }
 
-function erase() {
-  if (indexCaracter > 0) {
+function apagar() {
+  if (indexLetra > 0) {
     if (!cursorSpan.classList.contains("escrevendo"))
       cursorSpan.classList.add("escrevendo");
-    typedTextSpan.textContent = arrayTitulos[arrayTitulosIndex].substring(
+    textoSpan.textContent = arrayTitulos[arrayTitulosIndex].substring(
       0,
-      indexCaracter - 1
+      indexLetra - 1
     );
-    indexCaracter--;
-    setTimeout(erase, 200);
+    indexLetra--;
+    setTimeout(apagar, 200);
   } else {
     cursorSpan.classList.remove("escrevendo");
     arrayTitulosIndex++;
@@ -116,13 +115,12 @@ function listarPetsPerdidos() {
     botaoExcluir.onclick = function () {
       removeItem(this);
     };
-    console.log(imgPet.src);
     arrayPetsPerdidos[i].srcImagemPet == "Arquivo de Imagem Não Suportado"
       ? articleNovo.appendChild(imgPetError)
       : articleNovo.appendChild(imgPet);
     articleNovo.appendChild(paragrafoNovo);
     articleNovo.appendChild(botaoExcluir);
-    paragrafoNovo.innerHTML = `Nome do dono: ${arrayPetsPerdidos[i].nomeDono} <br> Nome do Pet: ${arrayPetsPerdidos[i].nomePet} <br> Tipo - Raça: ${arrayPetsPerdidos[i].raca} <br> Ultima vez visto: ${arrayPetsPerdidos[i].ultimaVista} <br> Observação: ${arrayPetsPerdidos[i].observacao}<br> Cidade: ${arrayPetsPerdidos[i].cidade} <br> Bairro: ${arrayPetsPerdidos[i].bairro} <br> Rua: ${arrayPetsPerdidos[i].rua}${arrayPetsPerdidos[i].numeroCasa}`;
+    paragrafoNovo.innerHTML = `Nome do dono: ${arrayPetsPerdidos[i].nomeDono} <br> Telefone: ${arrayPetsPerdidos[i].telefone} <br> Nome do Pet: ${arrayPetsPerdidos[i].nomePet} <br> Tipo - Raça: ${arrayPetsPerdidos[i].raca} <br> Ultima vez visto: ${arrayPetsPerdidos[i].ultimaVista} <br> Observação: ${arrayPetsPerdidos[i].observacao}<br> Cidade: ${arrayPetsPerdidos[i].cidade} <br> Bairro: ${arrayPetsPerdidos[i].bairro} <br> Rua: ${arrayPetsPerdidos[i].rua}${arrayPetsPerdidos[i].numeroCasa}`;
 
     divCard.appendChild(articleNovo);
   }
@@ -159,6 +157,7 @@ form.addEventListener("submit", (e) => {
   );
   divCard.innerHTML = "";
   arrayPetsPerdidos.push(novoDesaparecido);
+  apagarInputs();
   listarPetsPerdidos();
 });
 
@@ -179,10 +178,10 @@ function removeItem(r) {
 
 // ADICIONANDO EVENTO PARA O CAMPO CEP
 const divFormOpcional = document.querySelector(".form-opcional");
-const checkForm = document.querySelector("#form-opcional");
+const enderecoForm = document.querySelector("#form-opcional");
 const cep = document.querySelector("#cep");
-checkForm.addEventListener("click", () => {
-  if (checkForm.checked) {
+enderecoForm.addEventListener("click", () => {
+  if (enderecoForm.checked) {
     divFormOpcional.style.display = "block";
   } else {
     divFormOpcional.style.display = "none";
@@ -195,10 +194,10 @@ checkForm.addEventListener("click", () => {
   }
 });
 cep.addEventListener("blur", () => {
-  getCep();
+  buscarCPF();
 });
 
-function getCep() {
+function buscarCPF() {
   const valorCep = cep.value.replace("-", "");
   try {
     const promise = fetch(`https://api.pagar.me/1/zipcodes/${valorCep}`, {
@@ -221,14 +220,12 @@ function getCep() {
 }
 
 //Pegar a imagem do PET
-
-document.getElementById("imagemPet").onchange = function (evt) {
+document.querySelector("#imagemPet").onchange = function (evt) {
   let files = evt.target.files;
   console.log(files[0].type);
   if (files[0].type == "image/png" || files[0].type == "image/jpeg") {
     var fr = new FileReader();
     fr.onload = function () {
-      console.log("pa");
       srcImagemPet = fr.result;
     };
     fr.readAsDataURL(files[0]);
@@ -237,3 +234,22 @@ document.getElementById("imagemPet").onchange = function (evt) {
     srcImagemPet = "Arquivo de Imagem Não Suportado";
   }
 };
+
+//Apagar os dados apos cadastramento
+
+function apagarInputs() {
+  nomeDono.value = "";
+  telefone.value = "";
+  nomePet.value = "";
+  raca.value = "";
+  ultimaVista.value = "";
+  observacao.value = "";
+  document.querySelector("#imagemPet").value = "";
+  enderecoForm.checked = false;
+  divFormOpcional.style.display = "none";
+  cep.value = "";
+  bairro.value = "";
+  cidade.value = "";
+  rua.value = "";
+  numeroCasa.value = "";
+}

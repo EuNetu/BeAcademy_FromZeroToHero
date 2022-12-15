@@ -298,7 +298,7 @@ main {
 }
 
 #perdidos img {
-    width: 30vw;
+    width: 47vw;
 }
 
 .conteiner-perdidos {
@@ -370,6 +370,13 @@ input,
 textarea,
 button {
     display: block;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #fff;
+    font-weight: 300;
+    font-style: italic;
 }
 
 button {
